@@ -1,489 +1,337 @@
-﻿using System;
-using System.Data;
-using System.Data.OleDb;
-using System.Globalization;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
-namespace Final_Projet__Genterone__SEM_2526
+﻿namespace Final_Projet__Genterone__SEM_2526
 {
-    public partial class Employee_Management : Form
+    partial class Employee_Management
     {
-        private string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\rosal\OneDrive\Documents\GroceryMaxxDB.accdb;";
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-        public Employee_Management()
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
         {
-            InitializeComponent();
-            this.Activated += Employee_Management_Activated;
-
-            textBox5.Text = "May 15, 2024";
-            textBox5.ForeColor = System.Drawing.Color.Gray;
-
-            textBox6.Text = "Enter username";
-            textBox6.ForeColor = System.Drawing.Color.Gray;
-
-            textBox7.Text = "Enter Employee ID";
-            textBox7.ForeColor = System.Drawing.Color.Gray;
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
-        private void Employee_Management_Load(object sender, EventArgs e)
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
         {
-            LoadAllEmployees();
+            panel1 = new Panel();
+            label1 = new Label();
+            panel2 = new Panel();
+            button3 = new Button();
+            dataGridView1 = new DataGridView();
+            button1 = new Button();
+            textBox1 = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label7 = new Label();
+            textBox3 = new TextBox();
+            button2 = new Button();
+            textBox4 = new TextBox();
+            label6 = new Label();
+            textBox2 = new TextBox();
+            label8 = new Label();
+            textBox5 = new TextBox();
+            label9 = new Label();
+            textBox6 = new TextBox();
+            label10 = new Label();
+            textBox7 = new TextBox();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Green;
+            panel1.Controls.Add(label1);
+            panel1.ForeColor = SystemColors.ControlText;
+            panel1.Location = new Point(0, 1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1084, 45);
+            panel1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F);
+            label1.Location = new Point(3, 8);
+            label1.Name = "label1";
+            label1.Size = new Size(257, 31);
+            label1.TabIndex = 7;
+            label1.Text = "Employee Management";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.DarkGray;
+            panel2.Controls.Add(button3);
+            panel2.ForeColor = Color.Orange;
+            panel2.Location = new Point(0, 451);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1084, 37);
+            panel2.TabIndex = 4;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(3, 0);
+            button3.Name = "button3";
+            button3.Size = new Size(180, 36);
+            button3.TabIndex = 45;
+            button3.Text = "Return to Main Menu";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(3, 52);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(815, 354);
+            dataGridView1.TabIndex = 5;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(900, 275);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 53);
+            button1.TabIndex = 6;
+            button1.Text = "Add";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(927, 104);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(143, 27);
+            textBox1.TabIndex = 8;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(829, 52);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 20);
+            label2.TabIndex = 9;
+            label2.Text = "Add Employee";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(829, 340);
+            label3.Name = "label3";
+            label3.Size = new Size(133, 20);
+            label3.TabIndex = 10;
+            label3.Text = "Remove Employee";
+            label3.Click += label3_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(824, 366);
+            label4.Name = "label4";
+            label4.Size = new Size(97, 20);
+            label4.TabIndex = 11;
+            label4.Text = "Employee ID:";
+            label4.Click += label4_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(869, 107);
+            label5.Name = "label5";
+            label5.Size = new Size(52, 20);
+            label5.TabIndex = 12;
+            label5.Text = "Name:";
+            label5.Click += label5_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(829, 140);
+            label7.Name = "label7";
+            label7.Size = new Size(100, 20);
+            label7.TabIndex = 19;
+            label7.Text = "Middle Initial:";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(927, 137);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(143, 27);
+            textBox3.TabIndex = 18;
+            textBox3.TextChanged += textBox3_TextChanged;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(900, 396);
+            button2.Name = "button2";
+            button2.Size = new Size(131, 53);
+            button2.TabIndex = 20;
+            button2.Text = "Remove";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(927, 363);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(143, 27);
+            textBox4.TabIndex = 21;
+            textBox4.TextChanged += textBox4_TextChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(869, 173);
+            label6.Name = "label6";
+            label6.Size = new Size(42, 20);
+            label6.TabIndex = 23;
+            label6.Text = "Role:";
+            label6.Click += label6_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(927, 170);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(143, 27);
+            textBox2.TabIndex = 22;
+            textBox2.TextChanged += textBox2_TextChanged_1;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(829, 210);
+            label8.Name = "label8";
+            label8.Size = new Size(85, 20);
+            label8.TabIndex = 25;
+            label8.Text = "Date Hired:";
+            label8.Click += label8_Click;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(927, 203);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(143, 27);
+            textBox5.TabIndex = 24;
+            textBox5.TextChanged += textBox5_TextChanged;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(840, 74);
+            label9.Name = "label9";
+            label9.Size = new Size(81, 20);
+            label9.TabIndex = 27;
+            label9.Text = "UserName:";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(927, 71);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(143, 27);
+            textBox6.TabIndex = 26;
+            textBox6.TextChanged += textBox6_TextChanged;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(824, 245);
+            label10.Name = "label10";
+            label10.Size = new Size(97, 20);
+            label10.TabIndex = 30;
+            label10.Text = "Employee ID:";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(927, 242);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(143, 27);
+            textBox7.TabIndex = 31;
+            textBox7.TextChanged += textBox7_TextChanged;
+            textBox7.Enter += textBox7_Enter;
+            textBox7.Leave += textBox7_Leave;
+            // 
+            // Employee_Management
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1085, 500);
+            Controls.Add(label10);
+            Controls.Add(textBox7);
+            Controls.Add(label9);
+            Controls.Add(textBox6);
+            Controls.Add(label8);
+            Controls.Add(textBox5);
+            Controls.Add(label6);
+            Controls.Add(textBox2);
+            Controls.Add(textBox4);
+            Controls.Add(button2);
+            Controls.Add(label7);
+            Controls.Add(textBox3);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(textBox1);
+            Controls.Add(button1);
+            Controls.Add(dataGridView1);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Name = "Employee_Management";
+            Text = "Employee Management";
+            Load += Employee_Management_Load_1;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
-        private void Employee_Management_Activated(object sender, EventArgs e)
-        {
-            LoadAllEmployees();
-        }
+        #endregion
 
-        private void LoadAllEmployees()
-        {
-            try
-            {
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "SELECT EmployeeID, FullName, MiddleInitial, Username, [Role], DateHired, DateAdded FROM Employee ORDER BY EmployeeID";
-
-                    using (OleDbDataAdapter da = new OleDbDataAdapter(query, conn))
-                    {
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        dataGridView1.DataSource = dt;
-
-                        if (dataGridView1.Columns.Count > 0)
-                        {
-                            dataGridView1.Columns["EmployeeID"].HeaderText = "Employee ID";
-                            dataGridView1.Columns["FullName"].HeaderText = "Full Name";
-                            dataGridView1.Columns["MiddleInitial"].HeaderText = "M.I.";
-                            dataGridView1.Columns["Username"].HeaderText = "Username";
-                            dataGridView1.Columns["Role"].HeaderText = "Role/Position";
-                            dataGridView1.Columns["DateHired"].HeaderText = "Date Hired";
-                            dataGridView1.Columns["DateAdded"].HeaderText = "Date Added";
-
-                            dataGridView1.Columns["DateHired"].DefaultCellStyle.Format = "MMMM dd, yyyy";
-                            dataGridView1.Columns["DateAdded"].DefaultCellStyle.Format = "MMMM dd, yyyy";
-                            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        }
-                    }
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading employees: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // ADD EMPLOYEE Button - Manual input for all fields
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string employeeId = textBox7.Text.Trim();      // Manual Employee ID input
-            string fullName = textBox1.Text.Trim();
-            string middleInitial = textBox3.Text.Trim();
-            string role = textBox2.Text.Trim();
-            string dateString = textBox5.Text.Trim();
-            string username = textBox6.Text.Trim();
-
-            // Validate inputs
-            if (string.IsNullOrEmpty(employeeId) || employeeId == "Enter Employee ID")
-            {
-                MessageBox.Show("Please enter Employee ID!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox7.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(fullName))
-            {
-                MessageBox.Show("Please enter Full Name!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox1.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(role))
-            {
-                MessageBox.Show("Please enter Role/Position!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox2.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(username) || username == "Enter username")
-            {
-                MessageBox.Show("Please enter Username!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox6.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(dateString) || dateString == "May 15, 2024")
-            {
-                MessageBox.Show("Please enter Date Hired in format: May 15, 2024", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox5.Focus();
-                return;
-            }
-
-            DateTime dateHired;
-            string[] formats = { "MMMM dd, yyyy", "MMM dd, yyyy", "MMMM d, yyyy", "MM/dd/yyyy", "yyyy-MM-dd" };
-
-            if (!DateTime.TryParseExact(dateString, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out dateHired))
-            {
-                MessageBox.Show("Please enter a valid Date Hired in format: May 15, 2024",
-                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox5.Clear();
-                textBox5.Focus();
-                return;
-            }
-
-            // Check if Employee ID already exists
-            if (EmployeeExists(employeeId))
-            {
-                MessageBox.Show($"Employee ID '{employeeId}' already exists! Please use a different ID.",
-                    "Duplicate Employee ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox7.Clear();
-                textBox7.Focus();
-                return;
-            }
-
-            // Check if username already exists
-            if (UsernameExists(username))
-            {
-                MessageBox.Show($"Username '{username}' already exists! Please choose a different username.",
-                    "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox6.Clear();
-                textBox6.Focus();
-                return;
-            }
-
-            string password = username;
-
-            AddNewEmployee(employeeId, fullName, middleInitial, username, password, role, dateHired);
-        }
-
-        private bool EmployeeExists(string employeeId)
-        {
-            try
-            {
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "SELECT COUNT(*) FROM Employee WHERE EmployeeID = @id";
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@id", employeeId);
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return count > 0;
-                    }
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private bool UsernameExists(string username)
-        {
-            try
-            {
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "SELECT COUNT(*) FROM Employee WHERE Username = @user";
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@user", username);
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return count > 0;
-                    }
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private void AddNewEmployee(string employeeId, string fullName, string middleInitial,
-                                   string username, string password, string role, DateTime dateHired)
-        {
-            try
-            {
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
-                {
-                    conn.Open();
-
-                    string query = @"INSERT INTO Employee (EmployeeID, FullName, MiddleInitial, 
-                                   Username, [Password], [Role], DateHired, DateAdded) 
-                                   VALUES (@id, @name, @mi, @user, @pass, @role, @hired, @added)";
-
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@id", employeeId);
-                        cmd.Parameters.AddWithValue("@name", fullName);
-                        cmd.Parameters.AddWithValue("@mi", string.IsNullOrEmpty(middleInitial) ? (object)DBNull.Value : middleInitial);
-                        cmd.Parameters.AddWithValue("@user", username);
-                        cmd.Parameters.AddWithValue("@pass", password);
-                        cmd.Parameters.AddWithValue("@role", role);
-                        cmd.Parameters.Add("@hired", OleDbType.Date).Value = dateHired.Date;
-                        cmd.Parameters.Add("@added", OleDbType.Date).Value = dateHired.Date;
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                MessageBox.Show($"Employee '{fullName}' added successfully!\n\n" +
-                               $"Employee ID: {employeeId}\n" +
-                               $"Username: {username}\n" +
-                               $"Password: {username}\n" +
-                               $"Role: {role}\n" +
-                               $"Date Hired: {dateHired:MMMM dd, yyyy}",
-                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                ClearInputFields();
-                LoadAllEmployees();
-
-                textBox5.Text = "May 15, 2024";
-                textBox5.ForeColor = System.Drawing.Color.Gray;
-                textBox6.Text = "Enter username";
-                textBox6.ForeColor = System.Drawing.Color.Gray;
-                textBox7.Text = "Enter Employee ID";
-                textBox7.ForeColor = System.Drawing.Color.Gray;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error adding employee: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // REMOVE EMPLOYEE Button
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string employeeId = textBox4.Text.Trim();
-
-            if (string.IsNullOrEmpty(employeeId))
-            {
-                MessageBox.Show("Please enter Employee ID to remove!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox4.Focus();
-                return;
-            }
-
-            if (!EmployeeExists(employeeId))
-            {
-                MessageBox.Show($"Employee ID '{employeeId}' not found!", "Employee Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox4.Clear();
-                textBox4.Focus();
-                return;
-            }
-
-            string employeeName = GetEmployeeName(employeeId);
-
-            DialogResult result = MessageBox.Show($"Are you sure you want to delete Employee '{employeeName}' (ID: {employeeId})?\nThis action cannot be undone!",
-                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                DeleteEmployee(employeeId);
-            }
-        }
-
-        private void DeleteEmployee(string employeeId)
-        {
-            try
-            {
-                string employeeName = GetEmployeeName(employeeId);
-
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "DELETE FROM Employee WHERE EmployeeID = @id";
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@id", employeeId);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                MessageBox.Show($"Employee '{employeeName}' removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                textBox4.Clear();
-                LoadAllEmployees();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error deleting employee: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private string GetEmployeeName(string employeeId)
-        {
-            try
-            {
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "SELECT FullName FROM Employee WHERE EmployeeID = @id";
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@id", employeeId);
-                        object result = cmd.ExecuteScalar();
-                        return result != null ? result.ToString() : "Unknown";
-                    }
-                }
-            }
-            catch
-            {
-                return "Unknown";
-            }
-        }
-
-        private void ClearInputFields()
-        {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox1.Focus();
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                textBox4.Text = row.Cells["EmployeeID"].Value?.ToString() ?? "";
-                textBox1.Text = row.Cells["FullName"].Value?.ToString() ?? "";
-                textBox3.Text = row.Cells["MiddleInitial"].Value?.ToString() ?? "";
-                textBox2.Text = row.Cells["Role"].Value?.ToString() ?? "";
-                textBox6.Text = row.Cells["Username"].Value?.ToString() ?? "";
-                textBox7.Text = row.Cells["EmployeeID"].Value?.ToString() ?? "";
-
-                if (row.Cells["DateHired"].Value != null && row.Cells["DateHired"].Value != DBNull.Value)
-                {
-                    DateTime dateValue = Convert.ToDateTime(row.Cells["DateHired"].Value);
-                    textBox5.Text = dateValue.ToString("MMMM dd, yyyy");
-                }
-                else
-                {
-                    textBox5.Text = "May 15, 2024";
-                }
-            }
-        }
-
-        // textBox5 (Date Hired) focus events
-        private void textBox5_Enter(object sender, EventArgs e)
-        {
-            if (textBox5.Text == "May 15, 2024")
-            {
-                textBox5.Text = "";
-                textBox5.ForeColor = System.Drawing.Color.Black;
-            }
-        }
-
-        private void textBox5_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(textBox5.Text))
-            {
-                textBox5.Text = "May 15, 2024";
-                textBox5.ForeColor = System.Drawing.Color.Gray;
-            }
-        }
-
-        // textBox6 (Username) focus events
-        private void textBox6_Enter(object sender, EventArgs e)
-        {
-            if (textBox6.Text == "Enter username")
-            {
-                textBox6.Text = "";
-                textBox6.ForeColor = System.Drawing.Color.Black;
-            }
-        }
-
-        private void textBox6_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(textBox6.Text))
-            {
-                textBox6.Text = "Enter username";
-                textBox6.ForeColor = System.Drawing.Color.Gray;
-            }
-        }
-
-        // textBox7 (Employee ID) focus events
-        private void textBox7_Enter(object sender, EventArgs e)
-        {
-            if (textBox7.Text == "Enter Employee ID")
-            {
-                textBox7.Text = "";
-                textBox7.ForeColor = System.Drawing.Color.Black;
-            }
-        }
-
-        private void textBox7_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(textBox7.Text))
-            {
-                textBox7.Text = "Enter Employee ID";
-                textBox7.ForeColor = System.Drawing.Color.Gray;
-            }
-        }
-
-        // textBox6 TextChanged - Real-time username validation
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-            string username = textBox6.Text.Trim();
-            if (!string.IsNullOrEmpty(username) && username != "Enter username")
-            {
-                if (UsernameExists(username))
-                {
-                    textBox6.BackColor = System.Drawing.Color.LightPink;
-                }
-                else
-                {
-                    textBox6.BackColor = System.Drawing.Color.White;
-                }
-            }
-            else
-            {
-                textBox6.BackColor = System.Drawing.Color.White;
-            }
-        }
-
-        // textBox7 TextChanged - Real-time Employee ID validation
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-            string employeeId = textBox7.Text.Trim();
-            if (!string.IsNullOrEmpty(employeeId) && employeeId != "Enter Employee ID")
-            {
-                if (EmployeeExists(employeeId))
-                {
-                    textBox7.BackColor = System.Drawing.Color.LightPink;
-                }
-                else
-                {
-                    textBox7.BackColor = System.Drawing.Color.White;
-                }
-            }
-            else
-            {
-                textBox7.BackColor = System.Drawing.Color.White;
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Main_Menu__Admin_ adminMenu = new Main_Menu__Admin_();
-            adminMenu.Show();
-            this.Close();
-        }
-
-        // Existing empty event handlers
-        private void textBox1_TextChanged(object sender, EventArgs e) { }
-        private void textBox2_TextChanged_1(object sender, EventArgs e) { }
-        private void textBox3_TextChanged(object sender, EventArgs e) { }
-        private void textBox4_TextChanged(object sender, EventArgs e) { }
-        private void textBox5_TextChanged(object sender, EventArgs e) { }
-        private void label3_Click(object sender, EventArgs e) { }
-        private void label4_Click(object sender, EventArgs e) { }
-        private void label5_Click(object sender, EventArgs e) { }
-        private void label6_Click(object sender, EventArgs e) { }
-        private void label8_Click(object sender, EventArgs e) { }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-        private void Employee_Management_Load_1(object sender, EventArgs e) { }
+        private Panel panel1;
+        private Panel panel2;
+        private Label label1;
+        private DataGridView dataGridView1;
+        private Button button1;
+        private TextBox textBox1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label7;
+        private TextBox textBox3;
+        private Button button2;
+        private TextBox textBox4;
+        private Button button3;
+        private Label label6;
+        private TextBox textBox2;
+        private Label label8;
+        private TextBox textBox5;
+        private Label label9;
+        private TextBox textBox6;
+        private Label label10;      // NEW
+        private TextBox textBox7;    // NEW
     }
 }
