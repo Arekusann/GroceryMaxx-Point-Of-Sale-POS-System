@@ -1,0 +1,27 @@
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\bin\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.exe
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\bin\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.deps.json
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\bin\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.runtimeconfig.json
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\bin\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.dll
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\bin\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.pdb
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final_Projet__Genterone__SEM_2526.Form1.resources
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final_Projet__Genterone__SEM_2526.Main_Menu__Admin_.resources
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final_Projet__Genterone__SEM_2526.Properties.Resources.resources
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.csproj.GenerateResource.cache
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.AssemblyInfoInputs.cache
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.AssemblyInfo.cs
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.csproj.CoreCompileInputs.cache
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.dll
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\refint\Final Projet [Genterone] SEM 2526.dll
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.pdb
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.genruntimeconfig.cache
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\ref\Final Projet [Genterone] SEM 2526.dll
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final_Projet__Genterone__SEM_2526.Employee_Management.resources
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final_Projet__Genterone__SEM_2526.Inventory_Management.resources
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final_Projet__Genterone__SEM_2526.Pricing_Management.resources
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\bin\Debug\net10.0-windows\System.Data.OleDb.dll
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\bin\Debug\net10.0-windows\runtimes\win\lib\net10.0\System.Data.OleDb.dll
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Projet [Genterone] SEM 2526.csproj.AssemblyReference.cache
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final Pr.84301956.Up2Date
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final_Projet__Genterone__SEM_2526.Sales_Reports.resources
+C:\Users\rosal\Downloads\Final Projet [Genterone] SEM 2526\Final Projet [Genterone] SEM 2526\obj\Debug\net10.0-windows\Final_Projet__Genterone__SEM_2526.Main_Menu__User.resources
