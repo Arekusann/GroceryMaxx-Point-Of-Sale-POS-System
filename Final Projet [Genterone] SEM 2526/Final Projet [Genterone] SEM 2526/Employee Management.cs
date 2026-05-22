@@ -1,8 +1,8 @@
-﻿using System;
-using System.Data;
-using System.Windows.Forms;
+﻿using System.Data;
 using System.Data.OleDb;
 using System.Globalization;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Final_Projet__Genterone__SEM_2526
 {
@@ -17,6 +17,12 @@ namespace Final_Projet__Genterone__SEM_2526
 
             textBox5.Text = "May 15, 2024";
             textBox5.ForeColor = System.Drawing.Color.Gray;
+
+            textBox6.Text = "Enter username";
+            textBox6.ForeColor = System.Drawing.Color.Gray;
+
+            textBox7.Text = "Enter Employee ID";
+            textBox7.ForeColor = System.Drawing.Color.Gray;
         }
 
         private void Employee_Management_Load(object sender, EventArgs e)
@@ -68,13 +74,23 @@ namespace Final_Projet__Genterone__SEM_2526
             }
         }
 
-        // ADD EMPLOYEE Button 
+        // ADD EMPLOYEE Button - Manual input for all fields
         private void button1_Click(object sender, EventArgs e)
         {
+            string employeeId = textBox7.Text.Trim();      // Manual Employee ID input
             string fullName = textBox1.Text.Trim();
             string middleInitial = textBox3.Text.Trim();
             string role = textBox2.Text.Trim();
             string dateString = textBox5.Text.Trim();
+            string username = textBox6.Text.Trim();
+
+            // Validate inputs
+            if (string.IsNullOrEmpty(employeeId) || employeeId == "Enter Employee ID")
+            {
+                MessageBox.Show("Please enter Employee ID!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox7.Focus();
+                return;
+            }
 
             if (string.IsNullOrEmpty(fullName))
             {
@@ -90,7 +106,14 @@ namespace Final_Projet__Genterone__SEM_2526
                 return;
             }
 
-            if (string.IsNullOrEmpty(dateString))
+            if (string.IsNullOrEmpty(username) || username == "Enter username")
+            {
+                MessageBox.Show("Please enter Username!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox6.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(dateString) || dateString == "May 15, 2024")
             {
                 MessageBox.Show("Please enter Date Hired in format: May 15, 2024", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBox5.Focus();
@@ -109,49 +132,29 @@ namespace Final_Projet__Genterone__SEM_2526
                 return;
             }
 
-            string username = GenerateUsername(fullName);
+            // Check if Employee ID already exists
+            if (EmployeeExists(employeeId))
+            {
+                MessageBox.Show($"Employee ID '{employeeId}' already exists! Please use a different ID.",
+                    "Duplicate Employee ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox7.Clear();
+                textBox7.Focus();
+                return;
+            }
+
+            // Check if username already exists
+            if (UsernameExists(username))
+            {
+                MessageBox.Show($"Username '{username}' already exists! Please choose a different username.",
+                    "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox6.Clear();
+                textBox6.Focus();
+                return;
+            }
+
             string password = username;
-            string employeeId = GenerateEmployeeId();
 
             AddNewEmployee(employeeId, fullName, middleInitial, username, password, role, dateHired);
-        }
-
-        private string GenerateUsername(string fullName)
-        {
-            fullName = fullName.Trim();
-            string username = fullName.ToLower().Replace(' ', '.');
-            username = System.Text.RegularExpressions.Regex.Replace(username, @"[^a-zA-Z0-9.]", "");
-
-            string originalUsername = username;
-            int counter = 1;
-            while (UsernameExists(username))
-            {
-                username = $"{originalUsername}{counter}";
-                counter++;
-            }
-            return username;
-        }
-
-        private string GenerateEmployeeId()
-        {
-            try
-            {
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "SELECT COUNT(*) FROM Employee";
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
-                    {
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        int newId = count + 1;
-                        return $"EMP{newId:D3}";
-                    }
-                }
-            }
-            catch
-            {
-                return $"EMP{DateTime.Now.Ticks % 1000:D3}";
-            }
         }
 
         private bool EmployeeExists(string employeeId)
@@ -206,6 +209,7 @@ namespace Final_Projet__Genterone__SEM_2526
                 using (OleDbConnection conn = new OleDbConnection(connectionString))
                 {
                     conn.Open();
+
                     string query = @"INSERT INTO Employee (EmployeeID, FullName, MiddleInitial, 
                                    Username, [Password], [Role], DateHired, DateAdded) 
                                    VALUES (@id, @name, @mi, @user, @pass, @role, @hired, @added)";
@@ -218,8 +222,8 @@ namespace Final_Projet__Genterone__SEM_2526
                         cmd.Parameters.AddWithValue("@user", username);
                         cmd.Parameters.AddWithValue("@pass", password);
                         cmd.Parameters.AddWithValue("@role", role);
-                        cmd.Parameters.AddWithValue("@hired", dateHired);
-                        cmd.Parameters.AddWithValue("@added", dateHired);
+                        cmd.Parameters.Add("@hired", OleDbType.Date).Value = dateHired.Date;
+                        cmd.Parameters.Add("@added", OleDbType.Date).Value = dateHired.Date;
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -229,14 +233,18 @@ namespace Final_Projet__Genterone__SEM_2526
                                $"Username: {username}\n" +
                                $"Password: {username}\n" +
                                $"Role: {role}\n" +
-                               $"Date Hired: {dateHired:MMMM dd, yyyy}\n" +
-                               $"Date Added: {dateHired:MMMM dd, yyyy}",
+                               $"Date Hired: {dateHired:MMMM dd, yyyy}",
                     "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 ClearInputFields();
                 LoadAllEmployees();
 
                 textBox5.Text = "May 15, 2024";
+                textBox5.ForeColor = System.Drawing.Color.Gray;
+                textBox6.Text = "Enter username";
+                textBox6.ForeColor = System.Drawing.Color.Gray;
+                textBox7.Text = "Enter Employee ID";
+                textBox7.ForeColor = System.Drawing.Color.Gray;
             }
             catch (Exception ex)
             {
@@ -244,7 +252,7 @@ namespace Final_Projet__Genterone__SEM_2526
             }
         }
 
-        // REMOVE EMPLOYEE Button 
+        // REMOVE EMPLOYEE Button
         private void button2_Click(object sender, EventArgs e)
         {
             string employeeId = textBox4.Text.Trim();
@@ -342,6 +350,8 @@ namespace Final_Projet__Genterone__SEM_2526
                 textBox1.Text = row.Cells["FullName"].Value?.ToString() ?? "";
                 textBox3.Text = row.Cells["MiddleInitial"].Value?.ToString() ?? "";
                 textBox2.Text = row.Cells["Role"].Value?.ToString() ?? "";
+                textBox6.Text = row.Cells["Username"].Value?.ToString() ?? "";
+                textBox7.Text = row.Cells["EmployeeID"].Value?.ToString() ?? "";
 
                 if (row.Cells["DateHired"].Value != null && row.Cells["DateHired"].Value != DBNull.Value)
                 {
@@ -355,6 +365,7 @@ namespace Final_Projet__Genterone__SEM_2526
             }
         }
 
+        // textBox5 (Date Hired) focus events
         private void textBox5_Enter(object sender, EventArgs e)
         {
             if (textBox5.Text == "May 15, 2024")
@@ -373,6 +384,86 @@ namespace Final_Projet__Genterone__SEM_2526
             }
         }
 
+        // textBox6 (Username) focus events
+        private void textBox6_Enter(object sender, EventArgs e)
+        {
+            if (textBox6.Text == "Enter username")
+            {
+                textBox6.Text = "";
+                textBox6.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+
+        private void textBox6_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox6.Text))
+            {
+                textBox6.Text = "Enter username";
+                textBox6.ForeColor = System.Drawing.Color.Gray;
+            }
+        }
+
+        // textBox7 (Employee ID) focus events
+        private void textBox7_Enter(object sender, EventArgs e)
+        {
+            if (textBox7.Text == "Enter Employee ID")
+            {
+                textBox7.Text = "";
+                textBox7.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+
+        private void textBox7_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox7.Text))
+            {
+                textBox7.Text = "Enter Employee ID";
+                textBox7.ForeColor = System.Drawing.Color.Gray;
+            }
+        }
+
+        // textBox6 TextChanged - Real-time username validation
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            string username = textBox6.Text.Trim();
+            if (!string.IsNullOrEmpty(username) && username != "Enter username")
+            {
+                if (UsernameExists(username))
+                {
+                    textBox6.BackColor = System.Drawing.Color.LightPink;
+                }
+                else
+                {
+                    textBox6.BackColor = System.Drawing.Color.White;
+                }
+            }
+            else
+            {
+                textBox6.BackColor = System.Drawing.Color.White;
+            }
+        }
+
+        // textBox7 TextChanged - Real-time Employee ID validation
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+            string employeeId = textBox7.Text.Trim();
+            if (!string.IsNullOrEmpty(employeeId) && employeeId != "Enter Employee ID")
+            {
+                if (EmployeeExists(employeeId))
+                {
+                    textBox7.BackColor = System.Drawing.Color.LightPink;
+                }
+                else
+                {
+                    textBox7.BackColor = System.Drawing.Color.White;
+                }
+            }
+            else
+            {
+                textBox7.BackColor = System.Drawing.Color.White;
+            }
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             Main_Menu__Admin_ adminMenu = new Main_Menu__Admin_();
@@ -380,21 +471,18 @@ namespace Final_Projet__Genterone__SEM_2526
             this.Close();
         }
 
+        // Existing empty event handlers
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
         private void textBox2_TextChanged_1(object sender, EventArgs e) { }
+        private void textBox3_TextChanged(object sender, EventArgs e) { }
+        private void textBox4_TextChanged(object sender, EventArgs e) { }
         private void textBox5_TextChanged(object sender, EventArgs e) { }
         private void label3_Click(object sender, EventArgs e) { }
         private void label4_Click(object sender, EventArgs e) { }
         private void label5_Click(object sender, EventArgs e) { }
-        private void textBox3_TextChanged(object sender, EventArgs e) { }
-        private void textBox4_TextChanged(object sender, EventArgs e) { }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void label6_Click(object sender, EventArgs e) { }
-        private void textBox1_TextChanged(object sender, EventArgs e) { }
         private void label8_Click(object sender, EventArgs e) { }
-
-        private void Employee_Management_Load_1(object sender, EventArgs e)
-        {
-
-        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void Employee_Management_Load_1(object sender, EventArgs e) { }
     }
 }
